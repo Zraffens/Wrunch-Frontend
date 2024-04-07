@@ -1,0 +1,65 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transform: translateY(-5%);
+}
+
+.title {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.button-container {
+  display: flex;
+  width: 40vw;
+}
+
+button,
+.btn {
+  width: 100%;
+  padding: 15px 70px;
+  border-radius: 30px;
+  font-size: 1.2em;
+  margin: 0 10px;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid #ccc;
+}
+
+.btn:visited {
+  color: inherit;
+}
+
+.login-button {
+  background-color: #cccccc; /* You can change this to your preferred color */
+}
+
+.login-button:hover {
+  background: #a5a5a5;
+  border: 2px solid #a5a5a5;
+}
+
+.play-button {
+  background-color: black; /* Different background color for play button */
+  border: 2px solid black;
+  color: white;
+}
+
+.play-button:visited {
+  color: white;
+}
+
+.play-button:hover {
+  background: white;
+  color: black;
+}
