@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Board.css";
+import { render } from "@testing-library/react";
 
 const Board = ({ rows, cols, wordList }) => {
   const [board, setBoard] = useState([]);
+  const [renderBoard, setRenderBoard] = useState([])
 
 
   useEffect(() => {
@@ -15,8 +17,8 @@ const Board = ({ rows, cols, wordList }) => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       setBoard(data.grid);
+      setRenderBoard([...data.grid, [...Array(data.grid.length).keys()]])
     });
   };
 
@@ -192,16 +194,36 @@ const Board = ({ rows, cols, wordList }) => {
 
   return (
     <div className="board-container">
-      {board.map((row, rowIndex) => (
+      {console.log(renderBoard)}
+      {renderBoard.map((row, rowIndex) => (
         <div key={rowIndex} className="board-row">
+          {<div className={`${rowIndex == board.length ? 'text-white': null} rowIndex`}>{rowIndex}</div>}
           {row.map((cell, colIndex) => (
-            <span
+
+            <>
+            {board.length == rowIndex ? (
+              <span className="index" key={`a${cell}`}>{cell}</span>
+            ) : (
+              <span
               key={`${rowIndex}-${colIndex}`}
-              className={rowIndex % 2 === 0 ? "even" : "odd"}
+              className={`${rowIndex % 2 === 0 ? "even" : "odd"} letter`}
             >
               {cell}
             </span>
+            )}
+            </>
           ))}
+          
+          {/* {row.map((cell, colIndex) => (
+            // {unreadMessages.length > 0 &&
+            //   <h2>
+            //     You have {unreadMessages.length} unread messages.
+            //   </h2>
+            // }
+            <div className="rowIndex">
+              
+            {board.length - 1 == rowIndex ? <span className="index" key={`a${colIndex}`}>{colIndex}</span> : null}</div>
+          ))} */}
         </div>
       ))}
     </div>

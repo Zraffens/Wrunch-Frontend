@@ -9,15 +9,32 @@
 }
 
 span {
-  display: inline-block;
   width: 40px;
   height: 40px;
   line-height: 40px;
   text-align: center;
   font-size: 24px;
   font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
   padding: 5px;
+}
+
+span.letter {
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+.text-white {
+  color: white;
+}
+
+span.index {
+  font-size: 1.2rem;
+}
+
+.rowIndex {
+  font-size: 1.2rem;
+  width: 40px;
+  margin: 0.6rem 0.4rem;
 }
 
 .even {
